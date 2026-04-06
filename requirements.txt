@@ -1,0 +1,12 @@
+pandas
+geopandas
+numpy
+shapely
+folium
+streamlit
+plotly
+prophet
+requests
+xgboost
+scikit-learn
+streamlit-folium
