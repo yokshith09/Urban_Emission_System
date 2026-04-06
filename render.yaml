@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: urban-emission-dashboard
+    env: python
+    # We specify the build and start commands explicitly for Streamlit
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "streamlit run app/app.py --server.port $PORT --server.address 0.0.0.0"
+    
+    # We lock a modern Python 3.10 environment to prevent dependency conflicts (e.g., GeoPandas or Prophet)
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12

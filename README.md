@@ -57,5 +57,14 @@ streamlit run app/app.py
 
 ---
 
+## ☁️ Cloud Deployment (Render)
+This repository is natively pre-configured for free cloud hosting via **Render Web Services**:
+1. Create a free account on [Render.com](https://render.com/).
+2. Navigate to your Dashboard and click **New > Blueprint**.
+3. Connect your GitHub account and select this `Urban_Emission_Project` repository.
+4. Render will automatically read the included `render.yaml` file, detect the `streamlit` execution parameters, and safely deploy your dashboard to a public HTTPS url.
+
+---
+
 ## 📖 System Transparency
 Every data variable is logged securely underneath an accessible `User Guide & Legend` tab inside the dashboard. This defines standard safety thresholds for PM2.5 indices, explains our normalized Traffic & Industrial 0.0 - 1.0 scaling system, and openly documents the internal AI calculation structure so the viewer retains complete trust in the data stream.

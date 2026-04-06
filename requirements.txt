@@ -10,3 +10,4 @@ requests
 xgboost
 scikit-learn
 streamlit-folium
+streamlit-autorefresh
