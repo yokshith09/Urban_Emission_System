@@ -58,6 +58,11 @@ streamlit run app/app.py
 ---
 
 ## ☁️ Cloud Deployment (Render)
+> [!IMPORTANT]
+> **Performance Note**: Due to free-tier resource limitations on Render (512MB RAM), the heavy data-processing scripts (FB Prophet, GeoPandas) may occasionally fail to render the full map or live predictions in the cloud environment.
+> 
+> **For the best experience**: It is highly recommended to **clone this repository** to your local computer and run it following the [Local Setup](#-local-setup--deployment) instructions below to see the full, unrestricted results.
+
 This repository is natively pre-configured for free cloud hosting via **Render Web Services**:
 1. Create a free account on [Render.com](https://render.com/).
 2. Navigate to your Dashboard and click **New > Blueprint**.
