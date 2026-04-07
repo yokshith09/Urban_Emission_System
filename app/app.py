@@ -124,9 +124,15 @@ def load_data():
             if col != 'geometry':
                 merged[col] = merged[col].apply(lambda x: str(x) if isinstance(x, pd.Timestamp) else x)
 
-    return grid, scores, aqi, preds, merged
+    missing_files = []
+    if grid is None: missing_files.append("grid")
+    if scores is None: missing_files.append("scores")
+    if aqi is None: missing_files.append("aqi")
+    if preds is None: missing_files.append("preds")
 
-grid, scores, aqi, preds, merged = load_data()
+    return grid, scores, aqi, preds, merged, missing_files
+
+grid, scores, aqi, preds, merged, missing_files = load_data()
 
 def get_closest_area(geom):
     centroid = geom.centroid
@@ -159,7 +165,12 @@ if merged is not None:
         np.random.seed() # reset seed
 
 if merged is None:
-    st.warning("Data not generated yet! Run `src/grid.py`, `src/scoring.py`, `src/aqi.py`, `src/model.py`")
+    st.cache_data.clear()
+    st.warning(f"Data not generated or missing! Missing components: {missing_files}. Path checked: `data/processed/`. Try running `src/grid.py`, `src/scoring.py`, `src/aqi.py`, `src/model.py`")
+    st.stop()
+elif len(merged) == 0:
+    st.cache_data.clear()
+    st.warning("Data generated, but merged dataframe is empty! Check if grid_id matches across the CSVs.")
     st.stop()
 
 # Pre-calc area stats for general usage and Ticker
