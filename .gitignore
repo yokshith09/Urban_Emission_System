@@ -17,8 +17,8 @@ ENV/
 .vscode/
 
 # Datasets
-*.csv
-*.csv.gz
-*.geojson
-*.tif
-data/processed/
+# *.csv
+# *.csv.gz
+# *.geojson
+# *.tif
+# data/processed/
